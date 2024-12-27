@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: meteoapp
+spec: 
+  selector:
+    matchLabels:
+      run: meteoapp
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: meteoapp
+    spec:
+      containers: 
+        - name: meteoapp
+          image: meteowebapp:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5002

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: meteoapp-service
+spec:
+  selector:
+    run: meteoapp
+  ports:
+    - protocol: TCP
+      port: 8095
+      targetPort: 5002
+  type: NodePort
